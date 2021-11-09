@@ -1,0 +1,144 @@
+#!/usr/bin/env node
+const smtp =[
+
+
+ {
+		host: "",
+		username: "",
+		password: "",
+		port: 587,
+        secure:false // true for connection secure
+	},
+
+
+
+]
+
+// ==== ===
+
+let setup ={
+key                 :"",
+mail_priority       : "high", // high , medium, low
+sleep_time          : 1000,// 1000 for 1 second (can setup 0)
+isMultiThread       :true,
+howManyThread       : 2, // set as you want , no limit
+
+from_name           :"hello",
+mail_subject        :"hello",
+from_mail           :"",
+
+test_frommail : false,
+frommail_filename : "frommail.txt",
+
+replyTo             :"",
+email_test          :false, // true, false
+test_every          :2,
+email_destination   :"NOIR@NOIR.COM",
+
+letter              :"letter.html",
+
+useAttachment     : false,
+mailist             :"mailist.txt", // file name mailist
+
+pdfOrientation : "potrait", // "potriat" or "landscape"for pdf attachment
+	
+LetterToImage : false, 
+fileName_LetterToImage : "./letterToImage.html",
+
+useGrabLogo          : false, // true false
+defaultLogo       :     "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31",
+useMylogo            :false,
+	
+	
+widthImage_for_grabLogo_letter          :"120",
+heightImage_for_grabLogo_letter         :"50",
+
+widthImage_for_myLogo_letter         :"120",
+heightImage_for_myLogo_letter        :"50",
+
+
+widthImage_for_grabLogo_attachment          :"50",
+heighttImage_for_grabLogo_attachment         :"50", 
+
+widthImage_for_myLogo_attachment          :"50",
+heighttImage_for_myLogo_attachment         :"50", 
+
+
+
+}
+
+const myLOGO = [
+    {
+        function_name:"MYLOGO1",
+        nameFile : "image.png"
+    },
+    {
+       function_name:"MYLOGO2",
+       nameFile : "imageLetter.png"
+   }
+]
+
+const attachment_msg = {
+   use_msg : false,
+   attachment_name_msg: "message.msg",
+   file_name: "attachment_msg.html"
+   
+}
+
+// send multiple attachment as youu want
+
+const attachment = [
+	{   // file on disk as an attachment
+        filename: 'Doc_file <RANDNUM5> <COMPANYNAME>.html',
+        path: 'attachment.html', // stream this file
+        attachmentToPdf: false,
+        encryptAttachment: false,
+        
+    },
+
+]
+
+const setup_time_date = {
+time_zone           :"Europe/Madrid", //https://en.wikipedia.org/wiki/List_of_tz_database_time_zones -> list all of time zone in the world
+timezone_name       :"long", // "long" and "short"
+time_format_lang    :"en",
+}
+
+//generate your number random 
+const generate_random_number = [
+{
+    name:"RANDNUM1",
+    lengt_value:1
+},
+{
+    name:"RANDNUM2",
+    lengt_value:2
+},
+{
+    name:"RANDNUM3",
+    lengt_value:3
+},
+{
+    name:"RANDNUM4",
+    lengt_value:4
+},
+{
+    name:"RANDNUM5",
+    lengt_value:5
+},
+]
+
+const generate_random_string = [
+{
+    name:"random_string_3",
+    lengt_value:3,
+    type:"UPPERCASE" // "UPPERCASE","LOWERCASE","RANDOM"
+},
+{
+    name:"random_string_4",
+    lengt_value:4,
+    type:"LOWERCASE" // "UPPERCASE","LOWERCASE","RANDOM"
+},
+]
+
+module.exports = {smtp,setup, generate_random_number, generate_random_string, setup_time_date,attachment,attachment_msg,myLOGO};
