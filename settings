@@ -66,16 +66,12 @@ heighttImage_for_myLogo_attachment         :"50",
 
 
 }
-
+// can use multiple image
 const myLOGO = [
     {
         function_name:"MYLOGO1",
-        nameFile : "image.png"
-    },
-    {
-       function_name:"MYLOGO2",
-       nameFile : "imageLetter.png"
-   }
+        nameFile : "msn.png"
+    }
 ]
 
 const attachment_msg = {
@@ -89,7 +85,7 @@ const attachment_msg = {
 
 const attachment = [
 	{   // file on disk as an attachment
-        filename: 'Doc_file <RANDNUM5> <COMPANYNAME>.html',
+        filename: 'attachment.html',
         path: 'attachment.html', // stream this file
         attachmentToPdf: false,
         encryptAttachment: false,
